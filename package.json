@@ -1,5 +1,5 @@
 {
-  "name": "12-mysql-employee-tracker",
+  "name": "employee-tracker",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EdenKhaos/12-mysql-employee-tracker.git"
+    "url": "git+https://github.com/shelbybridwell/employee-tracker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EdenKhaos/12-mysql-employee-tracker/issues"
+    "url": "https://github.com/shelbybridwell/employee-tracker/issues"
   },
-  "homepage": "https://github.com/EdenKhaos/12-mysql-employee-tracker#readme",
+  "homepage": "https://github.com/shelbybridwell/employee-tracker#readme",
   "dependencies": {
     "console.table": "^0.10.0",
     "inquirer": "^7.3.3",

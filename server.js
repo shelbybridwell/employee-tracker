@@ -1,16 +1,17 @@
 //dependecies
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-require("console.table");
+const cTable = require("console.table");
+const db = require(".");
 
 //mysql connection
-const connnection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: 'localhost',
     port: 3001,
     user: 'root',
 
-    password: ''
-    database: 'employeeDB'
+    password: '',
+    database: 'employeeDB',
 });
 
 connection.connect(function (err) {
@@ -18,9 +19,9 @@ connection.connect(function (err) {
     console.log("connected as id " + connection.threadId);
     console.log(`employee manager`)
     // runs the app
-    firstPrompt();
+    startScreen();
 });
-function firstPrompt() {
+function startScreen() {
 
     inquirer
         .prompt({
@@ -36,7 +37,7 @@ function firstPrompt() {
                 "Add Role",
                 "End"]
         })
-        .then(function ({ task })) {
+        .then(function ({ task }) {
             switch (task) {
                 case "View Employees":
                     viewEmployee();
@@ -87,7 +88,7 @@ function viewEmployee() {
       console.table(res);
       console.log("Employees viewed!\n");
   
-      firstPrompt();
+      startScreen();
     });
   
   }
@@ -145,7 +146,7 @@ function viewEmployee() {
           console.table("response ", res);
           console.log(res.affectedRows + "Employees are viewed!\n");
   
-          firstPrompt();
+          startScreen();
         });
       });
   }
@@ -208,7 +209,7 @@ function viewEmployee() {
             console.table(res);
             console.log(res.insertedRows + "Inserted successfully!\n");
   
-            firstPrompt();
+            startScreen();
           });
       });
   }
@@ -253,7 +254,7 @@ function viewEmployee() {
           console.table(res);
           console.log(res.affectedRows + "Deleted!\n");
   
-          firstPrompt();
+          startScreen();
         });
       });
   }
@@ -340,7 +341,7 @@ function promptEmployeeRole(employeeChoices, roleChoices) {
             console.table(res);
             console.log(res.affectedRows + "Updated successfully!");
   
-            firstPrompt();
+            startScreen();
           });
       });
   }
@@ -410,7 +411,7 @@ function promptEmployeeRole(employeeChoices, roleChoices) {
             console.table(res);
             console.log("Role Inserted!");
   
-            firstPrompt();
+            startScreen();
           });
   
       });
